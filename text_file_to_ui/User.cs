@@ -8,6 +8,6 @@ namespace text_file_to_ui
 {
     internal class User
     {
-        List<Field> fieldList;
+        public List<Field> fieldList;
     }
 }

@@ -15,21 +15,23 @@ namespace text_file_to_ui
     {
         UserInfoForm userInfoForm;
         UserFileReader reader;
+        UserParser parser;
+        User user;
         public Form1()
         {
             InitializeComponent();
+            reader = new UserFileReader();
+            parser = new UserParser();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            reader = new UserFileReader();
-            parser = new UserParser();
-
             DialogResult result = openFileDialog1.ShowDialog(); // Show the dialog.
             if (result == DialogResult.OK) // Test result.
             {
                 reader.filePath = openFileDialog1.FileName;
                 reader.readUserFile();
+                user = parser.parseUser(reader.fileContent);
             }
         }
     }

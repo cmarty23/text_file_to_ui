@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -8,29 +9,33 @@ namespace text_file_to_ui
 {
     internal class UserParser
     {
-        private int numberOfFields;
 
-        public User parseUser(List<string> content)
+        public User parseUser(string[] fileContent)
         {
-            return new User();
+            List<string> content = fileContent.ToList();
+            content.RemoveAt(-1);
+
+            User user = new User();
+
+            foreach (var (line, i) in content.Select((line, i) => (line, i)))
+            {
+                Field field = new Field();
+                field.Name = getFieldName(line);
+                field.Value = getFieldValue(line);
+
+                user.fieldList.Add(field);
+            }
+
+            return user;
         }
 
-        private void getNumberOfFields(List<string> content)
+        private string getFieldName(string line) 
         {
-            return;
-        }
-
-        private void addFieldToUser(User user, string line)
-        {
-            return;
-        }
-        private void getFieldName(int id, string line) 
-        {
-            return;
+            return line.Split('=')[0];
         } 
-        private void getFieldValue(int id, string line)
+        private string getFieldValue(string line)
         {
-            return;
+            return line.Split('=')[1];
         }
     }
 }
