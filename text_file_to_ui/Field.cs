@@ -8,7 +8,16 @@ namespace text_file_to_ui
 {
     internal class Field
     {
-        public string Name;
-        public string Value;
+        public string name;
+        public string value;
+
+        public Field()
+        {
+
+        }
+        public Field(string Name)
+        {
+            name = Name;
+        }
     }
 }

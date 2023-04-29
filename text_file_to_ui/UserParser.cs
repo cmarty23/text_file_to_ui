@@ -20,8 +20,8 @@ namespace text_file_to_ui
             foreach (var (line, i) in content.Select((line, i) => (line, i)))
             {
                 Field field = new Field();
-                field.Name = getFieldName(line);
-                field.Value = getFieldValue(line);
+                field.name = getFieldName(line);
+                field.value = getFieldValue(line);
 
                 user.fieldList.Add(field);
             }
