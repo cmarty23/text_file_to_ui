@@ -15,9 +15,10 @@ namespace text_file_to_ui
         {
 
         }
-        public Field(string Name)
+        public Field(string Name, string Value)
         {
             name = Name;
+            value = Value;
         }
     }
 }
