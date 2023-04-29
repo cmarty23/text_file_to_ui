@@ -23,6 +23,7 @@ namespace text_file_to_ui
         private void button1_Click(object sender, EventArgs e)
         {
             reader = new UserFileReader();
+            parser = new UserParser();
 
             DialogResult result = openFileDialog1.ShowDialog(); // Show the dialog.
             if (result == DialogResult.OK) // Test result.
