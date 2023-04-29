@@ -28,7 +28,7 @@ namespace text_file_to_ui
             }
             int newCount = int.Parse(lastLine.Substring(idx + 1))+1;
 
-            fileContent[fileContent.Length - 1] = lastLine.Substring(0, idx) + newCount.ToString();
+            fileContent[fileContent.Length - 1] = lastLine.Substring(0, idx) + "=" + newCount.ToString();
 
             File.WriteAllLines(filePath, fileContent);
         }
