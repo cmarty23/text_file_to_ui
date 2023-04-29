@@ -13,17 +13,19 @@ namespace text_file_to_ui
         public User parseUser(string[] fileContent)
         {
             List<string> content = fileContent.ToList();
-            content.RemoveAt(-1);
+            content.RemoveAt(content.Count -1);
 
             User user = new User();
 
             foreach (var (line, i) in content.Select((line, i) => (line, i)))
             {
-                Field field = new Field();
-                field.name = getFieldName(line);
-                field.value = getFieldValue(line);
+                
+                string name = getFieldName(line);
+                string value = getFieldValue(line);
 
-                user.fieldList.Add(field);
+               
+
+                user.fieldList.Add(new Field(name, value));
             }
 
             return user;
