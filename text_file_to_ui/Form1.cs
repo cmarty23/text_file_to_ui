@@ -28,7 +28,7 @@ namespace text_file_to_ui
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-            update_Text_Content();
+            UpdateTextContent();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -37,16 +37,16 @@ namespace text_file_to_ui
             if (result == DialogResult.OK) // Test result.
             {
                 reader.filePath = openFileDialog1.FileName;
-                reader.readUserFile();
-                user = parser.parseUser(reader.fileContent);
-                display.displayUserInfo(user, info);
+                reader.ReadUserFile();
+                user = parser.ParseUser(reader.fileContent);
+                display.DisplayUserInfo(user, info);
 
 
-                update_Text_Content();
+                UpdateTextContent();
 
             }
         }
-        private void update_Text_Content()
+        private void UpdateTextContent()
         {
             label1.Text = info.name.name.ToString() + ":";
             label2.Text = info.yearOfBirth.name.ToString() + ":";

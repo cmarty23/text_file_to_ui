@@ -10,7 +10,7 @@ namespace text_file_to_ui
     internal class UserParser
     {
 
-        public User parseUser(string[] fileContent)
+        public User ParseUser(string[] fileContent)
         {
             List<string> content = fileContent.ToList();
             content.RemoveAt(content.Count -1);
@@ -20,8 +20,8 @@ namespace text_file_to_ui
             foreach (var (line, i) in content.Select((line, i) => (line, i)))
             {
                 
-                string name = getFieldName(line);
-                string value = getFieldValue(line);
+                string name = GetFieldName(line);
+                string value = GetFieldValue(line);
 
                
 
@@ -31,11 +31,11 @@ namespace text_file_to_ui
             return user;
         }
 
-        private string getFieldName(string line) 
+        private string GetFieldName(string line) 
         {
             return line.Split('=')[0];
         } 
-        private string getFieldValue(string line)
+        private string GetFieldValue(string line)
         {
             return line.Split('=')[1];
         }

@@ -12,12 +12,12 @@ namespace text_file_to_ui
         public string filePath;
         public string[] fileContent;
 
-        public void readUserFile()
+        public void ReadUserFile()
         {
             fileContent = File.ReadAllLines(filePath);
-            incrementFileOpenCounter();
+            IncrementFileOpenCounter();
         }
-        private void incrementFileOpenCounter()
+        private void IncrementFileOpenCounter()
         {
             string lastLine = fileContent[fileContent.Length - 1];
             int idx = lastLine.LastIndexOf('=');

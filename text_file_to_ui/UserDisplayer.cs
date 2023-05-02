@@ -8,14 +8,14 @@ namespace text_file_to_ui
 {
     internal class UserDisplayer
     {
-        public void displayUserInfo(User user, UserInfoForm info)
+        public void DisplayUserInfo(User user, UserInfoForm info)
         {
-            foreach (var (field, i) in user.fieldList.Select((field, i) => (field, i)))
+            foreach (var field in user.fieldList)
             {
-                displayField(field, info);
+                DisplayField(field, info);
             }
         }
-        private void displayField(Field field, UserInfoForm info)
+        private void DisplayField(Field field, UserInfoForm info)
         {
             switch (field.name) 
             {
